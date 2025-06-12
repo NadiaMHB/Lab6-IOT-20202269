@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores básicos -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta principal PigPay - Rosas -->
+    <color name="pig_pink_primary">#880E4F</color>          <!-- Rosa oscuro principal -->
+    <color name="pig_pink_primary_variant">#AD1457</color>   <!-- Variante más clara -->
+    <color name="pig_pink_secondary">#C2185B</color>         <!-- Rosa medio -->
+    <color name="pig_pink_light">#FFD6E7</color>            <!-- Rosa muy claro -->
+    <color name="pig_pink_extra_light">#FFE4ED</color>      <!-- Rosa pastel -->
+    <color name="pig_pink_dark">#3E0020</color>             <!-- Rosa muy oscuro -->
+    <color name="pig_pink_darker">#2E0015</color>           <!-- Rosa casi negro -->
+
+    <!-- Colores de superficie y fondo -->
+    <color name="surface_primary">#FFFFFF</color>           <!-- Superficie principal -->
+    <color name="surface_variant">#F5F5F5</color>          <!-- Superficie alternativa -->
+    <color name="background_primary">#FFF8FA</color>        <!-- Fondo principal -->
+    <color name="background_secondary">#FFEEF3</color>      <!-- Fondo secundario -->
+
+    <!-- Colores de texto -->
+    <color name="text_primary">#1C1B1F</color>             <!-- Texto principal -->
+    <color name="text_secondary">#49454F</color>           <!-- Texto secundario -->
+    <color name="text_tertiary">#79747E</color>            <!-- Texto terciario -->
+    <color name="text_on_primary">#FFFFFF</color>          <!-- Texto sobre color primario -->
+    <color name="text_hint">#9E9E9E</color>                <!-- Texto de sugerencia -->
+
+    <!-- Colores de estado -->
+    <color name="success">#2E7D32</color>                  <!-- Verde éxito -->
+    <color name="success_light">#E8F5E8</color>            <!-- Verde claro -->
+    <color name="error">#B3261E</color>                    <!-- Rojo error -->
+    <color name="error_light">#F9DEDC</color>              <!-- Rojo claro -->
+    <color name="warning">#F57C00</color>                  <!-- Naranja advertencia -->
+    <color name="warning_light">#FFF3E0</color>            <!-- Naranja claro -->
+    <color name="info">#1976D2</color>                     <!-- Azul información -->
+    <color name="info_light">#E3F2FD</color>               <!-- Azul claro -->
+
+    <!-- Colores de bordes y divisores -->
+    <color name="outline_primary">#79747E</color>          <!-- Borde principal -->
+    <color name="outline_variant">#CAC4D0</color>          <!-- Borde variante -->
+    <color name="divider">#E0E0E0</color>                  <!-- Divisor -->
+    <color name="divider_light">#F5F5F5</color>            <!-- Divisor claro -->
+
+    <!-- Colores de sombra y elevación -->
+    <color name="shadow_light">#1A000000</color>           <!-- Sombra ligera -->
+    <color name="shadow_medium">#33000000</color>          <!-- Sombra media -->
+    <color name="shadow_dark">#4D000000</color>            <!-- Sombra oscura -->
+
+    <!-- Colores de overlay y máscaras -->
+    <color name="overlay_light">#14000000</color>          <!-- Overlay ligero -->
+    <color name="overlay_medium">#33000000</color>         <!-- Overlay medio -->
+    <color name="overlay_dark">#66000000</color>           <!-- Overlay oscuro -->
+
+    <!-- Colores específicos para componentes -->
+    <color name="button_ripple">#33FFFFFF</color>          <!-- Efecto ripple en botones -->
+    <color name="card_background">#FFFFFF</color>          <!-- Fondo de tarjetas -->
+    <color name="input_background">#FAFAFA</color>         <!-- Fondo de inputs -->
+    <color name="disabled">#BDBDBD</color>                 <!-- Estado deshabilitado -->
+    <color name="disabled_light">#F5F5F5</color>          <!-- Fondo deshabilitado -->
+
+    <!-- Colores para estados de botones -->
+    <color name="button_pressed">#6A0B42</color>          <!-- Botón presionado -->
+    <color name="button_disabled">#E0E0E0</color>         <!-- Botón deshabilitado -->
+    <color name="button_disabled_text">#9E9E9E</color>    <!-- Texto botón deshabilitado -->
+
+    <!-- Colores adicionales para la app -->
+    <color name="transparent">#00000000</color>            <!-- Transparente -->
+    <color name="semi_transparent">#80000000</color>       <!-- Semi transparente -->
+
+    <!-- Colores para modo nocturno (opcional) -->
+    <color name="night_background">#121212</color>         <!-- Fondo modo nocturno -->
+    <color name="night_surface">#1E1E1E</color>           <!-- Superficie modo nocturno -->
+    <color name="night_text">#FFFFFF</color>              <!-- Texto modo nocturno -->
+
 </resources>
