@@ -64,6 +64,6 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         } else {
             Toast.makeText(this, "Inicio de sesión cancelado", Toast.LENGTH_SHORT).show();
-        }
+            finishAffinity();        }
     }
 }
