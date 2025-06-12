@@ -27,11 +27,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ✅ Inicializar el SDK de Facebook antes de mostrar FirebaseUI
+        // Inicializar el SDK de Facebook antes de mostrar FirebaseUI
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(getApplication());
 
-        // Si ya está logueado, va a IngresosActivity
+        // redirigir a mi primera pantalla si ya hay un usuario autenticado
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             startActivity(new Intent(this, IngresosActivity.class));
             finish();

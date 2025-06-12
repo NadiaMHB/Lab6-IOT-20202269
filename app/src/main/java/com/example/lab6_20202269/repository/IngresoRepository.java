@@ -22,7 +22,7 @@ public class IngresoRepository {
                     List<Ingreso> lista = new ArrayList<>();
                     for (QueryDocumentSnapshot doc : snapshot) {
                         Ingreso ingreso = doc.toObject(Ingreso.class);
-                        lista.add(ingreso); // el ID se autocompleta con @DocumentId
+                        lista.add(ingreso);
                     }
                     ingresosLiveData.setValue(lista);
                 });

@@ -55,7 +55,7 @@ public class IngresoAdapter extends RecyclerView.Adapter<IngresoAdapter.IngresoV
         holder.textTitulo.setText(ingreso.getTitulo());
         holder.textMonto.setText("S/ " + ingreso.getMonto());
 
-        // Convertir Timestamp a String (por ejemplo: 2025-06-11)
+        // Convertir Timestamp a String
         if (ingreso.getFecha() != null) {
             Date fechaDate = ingreso.getFecha().toDate();
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -72,7 +72,7 @@ public class IngresoAdapter extends RecyclerView.Adapter<IngresoAdapter.IngresoV
             holder.textDescripcion.setVisibility(View.GONE);
         }
 
-        // Botón Editar
+        // para editar y eliminar
         holder.btnEditar.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_editar_ingreso, null);
@@ -104,7 +104,6 @@ public class IngresoAdapter extends RecyclerView.Adapter<IngresoAdapter.IngresoV
             builder.create().show();
         });
 
-        // Botón Eliminar
         holder.btnEliminar.setOnClickListener(v -> {
             viewModel.eliminarIngreso(ingreso.getId());
             Toast.makeText(context, "Ingreso eliminado", Toast.LENGTH_SHORT).show();

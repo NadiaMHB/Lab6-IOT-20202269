@@ -123,7 +123,7 @@ public class EgresosActivity extends AppCompatActivity implements OnDateSelected
                 double montoVal = Double.parseDouble(montoStr);
                 if (descripcionStr == null) descripcionStr = "";
 
-                // Convertir fechaStr a Timestamp
+                // Convertir fecha string a Timestamp
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                 try {
                     Date date = sdf.parse(fechaStr);

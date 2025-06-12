@@ -55,7 +55,8 @@ public class EgresoAdapter extends RecyclerView.Adapter<EgresoAdapter.EgresoView
         holder.textTitulo.setText(egreso.getTitulo());
         holder.textMonto.setText("S/ " + egreso.getMonto());
 
-        // Convertir Timestamp a String legible
+        // Convertir Timestamp a String
+        // para asegurarlo, porque antes había creado el campo como string
         Timestamp fechaTimestamp = egreso.getFecha();
         if (fechaTimestamp != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -72,6 +73,7 @@ public class EgresoAdapter extends RecyclerView.Adapter<EgresoAdapter.EgresoView
             holder.textDescripcion.setVisibility(View.GONE);
         }
 
+        // para editar y eliminar
         holder.btnEditar.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_editar_egreso, null);

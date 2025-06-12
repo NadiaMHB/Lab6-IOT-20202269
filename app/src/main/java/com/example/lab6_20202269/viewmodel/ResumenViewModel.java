@@ -1,45 +1,72 @@
 package com.example.lab6_20202269.viewmodel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.lab6_20202269.model.Egreso;
+import com.example.lab6_20202269.model.Ingreso;
+import com.example.lab6_20202269.repository.EgresoRepository;
+import com.example.lab6_20202269.repository.IngresoRepository;
 import com.example.lab6_20202269.repository.ResumenRepository;
 
-public class ResumenViewModel extends ViewModel {
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
-    private final MutableLiveData<Float> ingresosLiveData = new MutableLiveData<>(0f);
-    private final MutableLiveData<Float> egresosLiveData = new MutableLiveData<>(0f);
-    private final MutableLiveData<String> errorLiveData = new MutableLiveData<>(null);
+public class ResumenViewModel extends AndroidViewModel {
 
-    private final ResumenRepository repository = new ResumenRepository();
+    private final IngresoRepository ingresoRepo;
+    private final EgresoRepository egresoRepo;
+    private final MutableLiveData<List<Ingreso>> ingresos = new MutableLiveData<>();
+    private final MutableLiveData<List<Egreso>> egresos = new MutableLiveData<>();
 
-    public LiveData<Float> getIngresos() {
-        return ingresosLiveData;
+    public ResumenViewModel(@NonNull Application application) {
+        super(application);
+        ingresoRepo = new IngresoRepository();
+        egresoRepo = new EgresoRepository();
     }
 
-    public LiveData<Float> getEgresos() {
-        return egresosLiveData;
+    public LiveData<List<Ingreso>> getIngresos() {
+        return ingresos;
     }
 
-    public LiveData<String> getError() {
-        return errorLiveData;
+    public LiveData<List<Egreso>> getEgresos() {
+        return egresos;
     }
 
-    public void cargarResumenDelMes(int mes, int anio) {
-        repository.obtenerResumenDelMes(mes, anio, new ResumenRepository.Callback() {
-            @Override
-            public void onResumenObtenido(float ingresos, float egresos) {
-                ingresosLiveData.postValue(ingresos);
-                egresosLiveData.postValue(egresos);
+    public void cargarDatosPorMes(String uid, int mes, int anio) {
+        ingresoRepo.getIngresos(uid).observeForever(lista -> {
+            List<Ingreso> filtrados = new ArrayList<>();
+            for (Ingreso i : lista) {
+                if (i.getFecha() != null) {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(i.getFecha().toDate());
+                    if (cal.get(Calendar.MONTH) == mes && cal.get(Calendar.YEAR) == anio) {
+                        filtrados.add(i);
+                    }
+                }
             }
+            ingresos.setValue(filtrados);
+        });
 
-            @Override
-            public void onError(String error) {
-                errorLiveData.postValue(error);
-                ingresosLiveData.postValue(0f);
-                egresosLiveData.postValue(0f);
+        egresoRepo.getEgresos(uid).observeForever(lista -> {
+            List<Egreso> filtrados = new ArrayList<>();
+            for (Egreso e : lista) {
+                if (e.getFecha() != null) {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(e.getFecha().toDate());
+                    if (cal.get(Calendar.MONTH) == mes && cal.get(Calendar.YEAR) == anio) {
+                        filtrados.add(e);
+                    }
+                }
             }
+            egresos.setValue(filtrados);
         });
     }
 }
+
